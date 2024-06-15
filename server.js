@@ -12,7 +12,7 @@ app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://wa.clientslinks.com', // Replace with your frontend origin
+    origin: ['https://thedesignsgenius.com/hero','http://localhost:3001'], // Replace with your frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
