@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
+const allowCors = require('./middlewares/allowCors'); // Adjust the path as needed
 
 dotenv.config();
 
@@ -10,23 +10,20 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-// CORS configuration
-const corsOptions = {
-    origin: ['https://thedesignsgenius.com/hero','http://localhost:3001'], // Replace with your frontend origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-};
-app.use(cors(corsOptions));
+// Apply CORS middleware globally
+app.use(allowCors);
 
+// Import Routes
 const authRoutes = require('./routes/authRoutes');
 const parcelRoutes = require('./routes/parcelRoutes');
 const pricingRoutes = require('./routes/pricingRoutes');
 
+// Use Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/parcels', parcelRoutes);
 app.use('/api/v1/pricing', pricingRoutes);
 
-// Routes
+// Root Route
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
