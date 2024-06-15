@@ -28,6 +28,11 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+// Basic Test Route
+app.get('/home', (req, res) => {
+  res.send('Hello world...');
+});
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
