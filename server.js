@@ -17,9 +17,9 @@ const parcelRoutes = require('./routes/parcelRoutes');
 const pricingRoutes = require('./routes/pricingRoutes');
 
 // Use Routes
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/parcels', parcelRoutes);
-app.use('/api/v1/pricing', pricingRoutes);
+app.use('/auth', authRoutes);
+app.use('/parcels', parcelRoutes);
+app.use('/pricing', pricingRoutes);
 
 // Root Route
 app.get('/', (req, res) => {
