@@ -17,7 +17,7 @@ const parcelRoutes = require('./routes/parcelRoutes');
 const pricingRoutes = require('./routes/pricingRoutes');
 
 // Use Routes
-app.use('/user', authRoutes);
+app.use('/users', authRoutes);
 app.use('/parcels', parcelRoutes);
 app.use('/pricing', pricingRoutes);
 
@@ -29,6 +29,12 @@ app.get('/', (req, res) => {
 // Basic Test Route
 app.get('/home', (req, res) => {
   res.send('Hello world...');
+});
+
+
+// Basic Test Route
+app.get('/user', (req, res) => {
+  res.send('User Route Test...');
 });
 
 // Error Handling Middleware
